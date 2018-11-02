@@ -65,6 +65,7 @@ const App = () => {
     <Player name = "Edgar" score = {45}/>
     <Player name = "Amanj" score = {42}/>
     <Player name = "Dede" score = {13}/>
+    <Player name = "Dede2" score = {113}/>
   </div>
 
 
