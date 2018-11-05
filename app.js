@@ -22,6 +22,30 @@
 //   </header>
 //
 // );
+
+const players = [
+  {
+        name: "Guil",
+        score: 50,
+        id: 1
+        },
+        {
+        name: "Treasure",
+        score: 85,
+        id: 2
+        },
+        {
+        name: "Ashley",
+        score: 95,
+        id : 3
+        },
+        {
+        name: "James",
+        score: 80,
+        id : 4
+        }
+
+];
 const Header = (props) => {
   console.log(props);
   return (
@@ -55,25 +79,26 @@ const Counter = (props) => {
   );
 
 }
-const App = () => {
+const App = (props) => {
   return (
   <div className = "scoreboard">
     <Header title= "Scoreboard" totalPlayers ={1}/>
     {/*Players list*/}
-    <Player name = "Guil" score = {50}/>
-    <Player name = "Adrian" score = {91}/>
-    <Player name = "Edgar" score = {45}/>
-    <Player name = "Amanj" score = {42}/>
-    <Player name = "Dede" score = {13}/>
-    <Player name = "Dede2" score = {113}/>
+    {props.initialPlayers.map ( player =>
+      <Player
+        name = {player.name}
+        score = {player.score}
+        key = {player.id.toString()}
+      />
+
+    )}
+
   </div>
-
-
 );
 
 }
 ReactDOM.render(
-  <App />,
+  <App initialPlayers = {players}/>,
   document.getElementById('root')
 
 );
