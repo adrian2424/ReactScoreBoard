@@ -62,22 +62,39 @@ const Player = (props) => {
       {props.name}
       </span>
 
-      <Counter score = {props.score}/>
+      <Counter />
   </div>
   );
 
 }
+{/*Changing States functions*/}
+class Counter extends React.Component{
+  state = {
+      score: 0
+  };
+  incrementScore = () =>{
+    this.setState({
+        score: this.state.score + 1
+    });
+  }
 
-const Counter = (props) => {
-  return (
-    <div className = "counter">
-        <button className = "counter-action decrement"> - </button>
-        <span className = "counter-score">{props.score}</span>
-        <button className = "counter-action increment"> + </button>
-    </div>
 
-  );
+    decrementScore = () =>{
+      this.setState({
+          score: this.state.score - 1
+      });
+    }
 
+  render(){
+    return (
+      <div className = "counter">
+          <button className = "counter-action decrement" onClick ={this.decrementScore}> - </button>
+          <span className = "counter-score">{ this.state.score}</span>
+          <button className = "counter-action increment" onClick={this.incrementScore}> + </button>
+      </div>
+    );
+
+  }
 }
 const App = (props) => {
   return (
